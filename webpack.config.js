@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+    devtool: "source-map",
     entry: "./src/index.js",   // 진입(시작) 파일 
     output: {
         path: path.join(__dirname, "dist"),   // 번들파일 저장위치
