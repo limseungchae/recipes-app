@@ -8,8 +8,12 @@ module.exports = {
         filename: "app.bundle.js"   // 기본파일명 : main.js
     },
     module: {   // 각 파일에 대한 세부적인 번들링 작업 정의
-        rules: [{ test: /\.js$/,   // .js 로 끝나는 파일에 대한 규칙 정의
-            exclude: /node_modules/, loader: "babel-loader" }]
+        rules: [
+            { test: /\.js$/,   // .js 로 끝나는 파일에 대한 규칙 정의
+                exclude: /node_modules/, loader: "babel-loader" },
+            {test: /\.png$/, // 이미지 파일에 대한 규칙 정의
+                    use: [{ loader: "file-loader", },],},
+        ],
     },
     devServer: {  // 서버 구동시 관련 내용 설정
         static: path.join(__dirname, 'dist'),
